@@ -3,7 +3,7 @@ using CxxWrap, Libdl
 openfstver = "openfst-1.8.2"
 openfstdir = "$(@__DIR__)/$openfstver/"
 
-# run(`tar xfz $(@__DIR__)/$openfstver.tar.gz -C $(@__DIR__)`)
+run(`tar xfz $(@__DIR__)/$openfstver.tar.gz -C $(@__DIR__)`)
 cd(()->run(`./configure --prefix=$(@__DIR__)`), openfstdir)
 cd(()->run(`make -j install`), openfstdir)
 
