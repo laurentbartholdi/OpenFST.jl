@@ -1,8 +1,9 @@
 module OpenFST
 
-using CxxWrap, Test, SparseArrays
+using CxxWrap, Test, SparseArrays, Libdl
 
-@wrapmodule(joinpath(@__DIR__,"../deps/lib","libfst_jl"))
+get_path() = joinpath(@__DIR__,"../deps/lib","libfst_jl.$(Libdl.dlext)")
+@wrapmodule get_path
 
 function __init__()
     @initcxx
@@ -458,4 +459,4 @@ end
 
 include("buchi.jl")
 
-end
+end # module OpenFST
