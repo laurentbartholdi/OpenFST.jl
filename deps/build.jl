@@ -1,6 +1,6 @@
 using CxxWrap, Libdl
 
-openfstver = "openfst-1.8.2"
+openfstver = "openfst-1.8.3"
 openfstdir = "$(@__DIR__)/$openfstver/"
 
 run(`tar xfz $(@__DIR__)/$openfstver.tar.gz -C $(@__DIR__)`)

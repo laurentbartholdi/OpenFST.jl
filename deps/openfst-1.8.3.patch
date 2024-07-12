@@ -1,6 +1,6 @@
-diff -ur openfst-1.8.2-orig/src/include/fst/log.h openfst-1.8.2/src/include/fst/log.h
---- openfst-1.8.2-orig/src/include/fst/log.h	2022-02-03 17:48:58.000000000 +0100
-+++ openfst-1.8.2/src/include/fst/log.h	2022-09-08 10:19:17.000000000 +0200
+diff -ur openfst-1.8.3-orig/src/include/fst/log.h openfst-1.8.3/src/include/fst/log.h
+--- openfst-1.8.3-orig/src/include/fst/log.h	2022-02-03 17:48:58.000000000 +0100
++++ openfst-1.8.3/src/include/fst/log.h	2022-09-08 10:19:17.000000000 +0200
 @@ -29,18 +29,20 @@
  
  DECLARE_int32(v);
@@ -25,9 +25,9 @@ diff -ur openfst-1.8.2-orig/src/include/fst/log.h openfst-1.8.2/src/include/fst/
  
   private:
    bool fatal_;
-diff -ur openfst-1.8.2-orig/src/lib/util.cc openfst-1.8.2/src/lib/util.cc
---- openfst-1.8.2-orig/src/lib/util.cc	2022-02-03 17:48:58.000000000 +0100
-+++ openfst-1.8.2/src/lib/util.cc	2022-09-08 09:18:28.000000000 +0200
+diff -ur openfst-1.8.3-orig/src/lib/util.cc openfst-1.8.3/src/lib/util.cc
+--- openfst-1.8.3-orig/src/lib/util.cc	2022-02-03 17:48:58.000000000 +0100
++++ openfst-1.8.3/src/lib/util.cc	2022-09-08 09:18:28.000000000 +0200
 @@ -37,6 +37,8 @@
              "FST errors are fatal; o.w. return objects flagged as bad: "
              "e.g., FSTs: kError property set, FST weights: not a Member()");
