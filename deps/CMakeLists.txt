@@ -18,6 +18,7 @@ message(STATUS "Found JlCxx at ${JlCxx_location}")
 add_library(fst_jl SHARED fst_jl.cpp)
 
 target_link_libraries(fst_jl JlCxx::cxxwrap_julia)
+target_link_options(fst_jl BEFORE PUBLIC -Llib)
 target_link_libraries(fst_jl fst)
 
 install(TARGETS
