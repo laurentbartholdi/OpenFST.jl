@@ -1,3 +1,28 @@
+diff -ur openfst-1.8.3-orig/src/include/fst/impl-to-fst.h openfst-1.8.3/src/include/fst/impl-to-fst.h
+--- openfst-1.8.3-orig/src//include/fst/impl-to-fst.h	2024-01-11 22:32:17
++++ openfst-1.8.3/src/include/fst/impl-to-fst.h	2024-07-28 12:20:05
+@@ -127,7 +127,7 @@
+   // Returns a ref-counted smart poiner to the implementation.
+   std::shared_ptr<Impl> GetSharedImpl() const { return impl_; }
+
+-  bool Unique() const { return impl_.unique(); }
++  bool Unique() const { return impl_.use_count() == 1; }
+
+   void SetImpl(std::shared_ptr<Impl> impl) { impl_ = std::move(impl); }
+
+diff -ur openfst-1.8.3-orig/src/include/fst/symbol-table.h openfst-1.8.3/src/include/fst/symbol-table.h
+--- openfst-1.8.3-orig/src/include/fst/symbol-table.h	2024-07-28 12:13:29
++++ openfst-1.8.3/src/include/fst/symbol-table.h	2024-07-28 12:11:37
+@@ -522,7 +522,7 @@
+
+  private:
+   void MutateCheck() {
+-    if (impl_.unique() || !impl_->IsMutable()) return;
++    if (impl_.use_count() == 1 || !impl_->IsMutable()) return;
+     std::unique_ptr<internal::SymbolTableImplBase> copy = impl_->Copy();
+     CHECK(copy != nullptr);
+     impl_ = std::move(copy);
+
 diff -ur openfst-1.8.3-orig/src/include/fst/log.h openfst-1.8.3/src/include/fst/log.h
 --- openfst-1.8.3-orig/src/include/fst/log.h	2022-02-03 17:48:58.000000000 +0100
 +++ openfst-1.8.3/src/include/fst/log.h	2022-09-08 10:19:17.000000000 +0200
