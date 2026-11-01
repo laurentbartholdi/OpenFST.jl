@@ -1,7 +1,7 @@
 name = "OpenFST"
 uuid = "18031d04-943d-420a-99da-58315a5a21aa"
 authors = ["Laurent Bartholdi <laurent.bartholdi@gmail.com> and contributors"]
-version = "0.1.1"
+version = "0.1.3"
 
 [deps]
 CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
@@ -11,4 +11,4 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
 julia = "1"
-CxxWrap = "0.14 - 1"
+CxxWrap = "0.17 - 0.19"

@@ -3,6 +3,8 @@
 
 #include <fst/fstlib.h>
 
+std::ostream *FST_FLAGS_outputstream = nullptr;
+
 static std::stringstream errormsg;
 
 fst::StdVectorFst testerror(fst::StdVectorFst &f)
